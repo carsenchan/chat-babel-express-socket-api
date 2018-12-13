@@ -64,14 +64,13 @@ io.on('connection', (socket)=>{
 });
 
 
-server.listen(port, ()=>{
-  
-  mongoose.connect(process.env.mongoConn || 'mongo://localhost:27017/', { useNewUrlParser: true })
-  .then( ()=> {
-    console.log('DB Connnected');
+mongoose.connect(process.env.mongoConn || 'mongodb://localhost:27017/', { useNewUrlParser: true })
+.then( ()=> {
+  console.log('DB Connnected');
+  server.listen(port, ()=>{
 
-  })
-  .catch(error=>console.log(error))
+    console.log(`Server Started on PORT: ${port}`);
+  });
+})
+.catch(error=>console.log(error));
 
-  console.log(`Server Started on PORT: ${port}`);
-});
