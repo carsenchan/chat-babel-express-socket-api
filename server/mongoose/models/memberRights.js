@@ -20,6 +20,6 @@ const memberRightSchema = new mongoose.Schema({
   }
 });
 
-const MemberRight = mongoose.model("MemberRight", memberRightSchema);
+const MemberRight = mongoose.model("MemberRight", memberRightSchema, "memberRights");
 
 export default MemberRight;
